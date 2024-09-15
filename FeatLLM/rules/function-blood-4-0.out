@@ -1,0 +1,172 @@
+def extracting_features_no(df_input):
+    df_output = pd.DataFrame()
+    
+    df_output['Recency <= 4'] = df_input['Recency'].apply(lambda x: 1 if x <= 4 else 0)
+    df_output['Frequency <= 1'] = df_input['Frequency'].apply(lambda x: 1 if x <= 1 else 0)
+    df_output['Monetary <= 250'] = df_input['Monetary'].apply(lambda x: 1 if x <= 250 else 0)
+    df_output['Time <= 4'] = df_input['Time'].apply(lambda x: 1 if x <= 4 else 0)
+    df_output['Recency > 4 and <= 26'] = df_input['Recency'].apply(lambda x: 1 if x > 4 and x <= 26 else 0)
+    df_output['Frequency <= 5'] = df_input['Frequency'].apply(lambda x: 1 if x <= 5 else 0)
+    df_output['Monetary <= 1250'] = df_input['Monetary'].apply(lambda x: 1 if x <= 1250 else 0)
+    df_output['Time > 4 and <= 49'] = df_input['Time'].apply(lambda x: 1 if x > 4 and x <= 49 else 0)
+    df_output['Recency > 26'] = df_input['Recency'].apply(lambda x: 1 if x > 26 else 0)
+    df_output['Frequency > 5'] = df_input['Frequency'].apply(lambda x: 1 if x > 5 else 0)
+    
+    return df_output
+
+---DIVIDER---
+
+def extracting_features_yes(df_input):
+    df_output = df_input.copy()
+    df_output['Recency > 4'] = df_output['Recency'].apply(lambda x: 1 if x > 4 else 0)
+    df_output['Frequency > 1'] = df_output['Frequency'].apply(lambda x: 1 if x > 1 else 0)
+    df_output['Monetary > 250'] = df_output['Monetary'].apply(lambda x: 1 if x > 250 else 0)
+    df_output['Time > 4'] = df_output['Time'].apply(lambda x: 1 if x > 4 else 0)
+    df_output['Recency <= 4 and > 2'] = df_output['Recency'].apply(lambda x: 1 if x <= 4 and x > 2 else 0)
+    df_output['Frequency > 1 and <= 5'] = df_output['Frequency'].apply(lambda x: 1 if x > 1 and x <= 5 else 0)
+    df_output['Monetary > 250 and <= 1250'] = df_output['Monetary'].apply(lambda x: 1 if x > 250 and x <= 1250 else 0)
+    df_output['Time > 4 and <= 49'] = df_output['Time'].apply(lambda x: 1 if x > 4 and x <= 49 else 0)
+    df_output['Recency <= 26 and > 2'] = df_output['Recency'].apply(lambda x: 1 if x <= 26 and x > 2 else 0)
+    df_output['Frequency > 5'] = df_output['Frequency'].apply(lambda x: 1 if x > 5 else 0)
+    
+    return df_output
+
+---VERSION---
+
+def extracting_features_no(df_input):
+    df_output = pd.DataFrame()
+    df_output['Recency <= 4'] = df_input['Recency'].apply(lambda x: 1 if x <= 4 else 0)
+    df_output['Frequency <= 1'] = df_input['Frequency'].apply(lambda x: 1 if x <= 1 else 0)
+    df_output['Monetary <= 250'] = df_input['Monetary'].apply(lambda x: 1 if x <= 250 else 0)
+    df_output['Time <= 4'] = df_input['Time'].apply(lambda x: 1 if x <= 4 else 0)
+    df_output['Recency >= 26'] = df_input['Recency'].apply(lambda x: 1 if x >= 26 else 0)
+    df_output['Frequency <= 2'] = df_input['Frequency'].apply(lambda x: 1 if x <= 2 else 0)
+    df_output['Monetary <= 500'] = df_input['Monetary'].apply(lambda x: 1 if x <= 500 else 0)
+    df_output['Time <= 10'] = df_input['Time'].apply(lambda x: 1 if x <= 10 else 0)
+    df_output['Recency <= 6 and Frequency <= 3'] = ((df_input['Recency'] <= 6) & (df_input['Frequency'] <= 3)).astype(int)
+    df_output['Time <= 2 and Monetary <= 300'] = ((df_input['Time'] <= 2) & (df_input['Monetary'] <= 300)).astype(int)
+    
+    return df_output
+
+---DIVIDER---
+
+def extracting_features_yes(df_input):
+    df_output = df_input.copy()
+    df_output['Recency_condition_1'] = df_output['Recency'].apply(lambda x: 1 if x > 4 else 0)
+    df_output['Frequency_condition_1'] = df_output['Frequency'].apply(lambda x: 1 if x >= 2 else 0)
+    df_output['Monetary_condition_1'] = df_output['Monetary'].apply(lambda x: 1 if x > 250 else 0)
+    df_output['Time_condition_1'] = df_output['Time'].apply(lambda x: 1 if x > 10 else 0)
+    df_output['Recency_condition_2'] = df_output['Recency'].apply(lambda x: 1 if x <= 26 else 0)
+    df_output['Frequency_condition_2'] = df_output['Frequency'].apply(lambda x: 1 if x >= 3 else 0)
+    df_output['Monetary_condition_2'] = df_output['Monetary'].apply(lambda x: 1 if x > 500 else 0)
+    df_output['Time_condition_2'] = df_output['Time'].apply(lambda x: 1 if x > 2 else 0)
+    df_output['Recency_condition_3'] = df_output.apply(lambda x: 1 if x['Recency'] > 6 and x['Frequency'] >= 4 else 0, axis=1)
+    df_output['Time_condition_3'] = df_output.apply(lambda x: 1 if x['Time'] > 4 and x['Monetary'] > 300 else 0, axis=1)
+    
+    return df_output
+
+---VERSION---
+
+def extracting_features_no(df_input):
+    df_output = pd.DataFrame()
+    
+    df_output['Recency <= 4'] = df_input['Recency'].apply(lambda x: 1 if x <= 4 else 0)
+    df_output['Frequency <= 1'] = df_input['Frequency'].apply(lambda x: 1 if x <= 1 else 0)
+    df_output['Monetary <= 250'] = df_input['Monetary'].apply(lambda x: 1 if x <= 250 else 0)
+    df_output['Time <= 4'] = df_input['Time'].apply(lambda x: 1 if x <= 4 else 0)
+    
+    df_output['Recency in [2, 4]'] = df_input['Recency'].apply(lambda x: 1 if x >= 2 and x <= 4 else 0)
+    df_output['Frequency in [1, 2]'] = df_input['Frequency'].apply(lambda x: 1 if x >= 1 and x <= 2 else 0)
+    df_output['Monetary in [250, 500]'] = df_input['Monetary'].apply(lambda x: 1 if x >= 250 and x <= 500 else 0)
+    df_output['Time in [2, 4]'] = df_input['Time'].apply(lambda x: 1 if x >= 2 and x <= 4 else 0)
+    
+    df_output['Recency > 4'] = df_input['Recency'].apply(lambda x: 1 if x > 4 else 0)
+    df_output['Frequency > 1'] = df_input['Frequency'].apply(lambda x: 1 if x > 1 else 0)
+    
+    return df_output
+
+---DIVIDER---
+
+def extracting_features_yes(df_input):
+    df_output = df_input.copy()
+    df_output['Recency > 4'] = df_output['Recency'].apply(lambda x: 1 if x > 4 else 0)
+    df_output['Frequency > 1'] = df_output['Frequency'].apply(lambda x: 1 if x > 1 else 0)
+    df_output['Monetary > 250'] = df_output['Monetary'].apply(lambda x: 1 if x > 250 else 0)
+    df_output['Time > 4'] = df_output['Time'].apply(lambda x: 1 if x > 4 else 0)
+    df_output['Recency in [4, 26]'] = df_output['Recency'].apply(lambda x: 1 if x >= 4 and x <= 26 else 0)
+    df_output['Frequency in [1, 5]'] = df_output['Frequency'].apply(lambda x: 1 if x >= 1 and x <= 5 else 0)
+    df_output['Monetary in [250, 1250]'] = df_output['Monetary'].apply(lambda x: 1 if x >= 250 and x <= 1250 else 0)
+    df_output['Time in [4, 49]'] = df_output['Time'].apply(lambda x: 1 if x >= 4 and x <= 49 else 0)
+    df_output['Recency <= 26'] = df_output['Recency'].apply(lambda x: 1 if x <= 26 else 0)
+    df_output['Frequency <= 5'] = df_output['Frequency'].apply(lambda x: 1 if x <= 5 else 0)
+    
+    return df_output
+
+---VERSION---
+
+def extracting_features_no(df_input):
+    df_output = df_input.copy()
+    df_output['Recency <= 3'] = df_output['Recency'].apply(lambda x: 1 if x <= 3 else 0)
+    df_output['Frequency <= 2'] = df_output['Frequency'].apply(lambda x: 1 if x <= 2 else 0)
+    df_output['Monetary <= 500'] = df_output['Monetary'].apply(lambda x: 1 if x <= 500 else 0)
+    df_output['Time <= 10'] = df_output['Time'].apply(lambda x: 1 if x <= 10 else 0)
+    df_output['Recency in [2, 4]'] = df_output['Recency'].apply(lambda x: 1 if x in [2, 4] else 0)
+    df_output['Frequency in [1, 3]'] = df_output['Frequency'].apply(lambda x: 1 if x in [1, 3] else 0)
+    df_output['Monetary in [200, 500]'] = df_output['Monetary'].apply(lambda x: 1 if x in [200, 500] else 0)
+    df_output['Time in [1, 20]'] = df_output['Time'].apply(lambda x: 1 if x in [1, 20] else 0)
+    df_output['Recency > 10'] = df_output['Recency'].apply(lambda x: 1 if x > 10 else 0)
+    df_output['Frequency > 5'] = df_output['Frequency'].apply(lambda x: 1 if x > 5 else 0)
+    
+    return df_output
+
+---DIVIDER---
+
+def extracting_features_yes(df_input):
+    df_output = df_input.copy()
+    df_output['Recency > 3'] = df_output['Recency'].apply(lambda x: 1 if x > 3 else 0)
+    df_output['Frequency > 2'] = df_output['Frequency'].apply(lambda x: 1 if x > 2 else 0)
+    df_output['Monetary > 500'] = df_output['Monetary'].apply(lambda x: 1 if x > 500 else 0)
+    df_output['Time > 10'] = df_output['Time'].apply(lambda x: 1 if x > 10 else 0)
+    df_output['Recency in [4, 26]'] = df_output['Recency'].apply(lambda x: 1 if x in range(4, 27) else 0)
+    df_output['Frequency in [3, 9]'] = df_output['Frequency'].apply(lambda x: 1 if x in range(3, 10) else 0)
+    df_output['Monetary in [500, 2250]'] = df_output['Monetary'].apply(lambda x: 1 if x in range(500, 2251) else 0)
+    df_output['Time in [20, 50]'] = df_output['Time'].apply(lambda x: 1 if x in range(20, 51) else 0)
+    df_output['Recency <= 26'] = df_output['Recency'].apply(lambda x: 1 if x <= 26 else 0)
+    df_output['Frequency <= 5'] = df_output['Frequency'].apply(lambda x: 1 if x <= 5 else 0)
+    
+    return df_output
+
+---VERSION---
+
+def extracting_features_no(df_input):
+    df_output = pd.DataFrame()
+    
+    df_output['Recency_<3'] = df_input['Recency'].apply(lambda x: 1 if x < 3 else 0)
+    df_output['Frequency_<2'] = df_input['Frequency'].apply(lambda x: 1 if x < 2 else 0)
+    df_output['Monetary_<500'] = df_input['Monetary'].apply(lambda x: 1 if x < 500 else 0)
+    df_output['Time_<10'] = df_input['Time'].apply(lambda x: 1 if x < 10 else 0)
+    df_output['Recency_>20'] = df_input['Recency'].apply(lambda x: 1 if x > 20 else 0)
+    df_output['Frequency_<3'] = df_input['Frequency'].apply(lambda x: 1 if x < 3 else 0)
+    df_output['Monetary_<1000'] = df_input['Monetary'].apply(lambda x: 1 if x < 1000 else 0)
+    df_output['Time_<20'] = df_input['Time'].apply(lambda x: 1 if x < 20 else 0)
+    df_output['Recency_<5_and_Frequency_<2'] = ((df_input['Recency'] < 5) & (df_input['Frequency'] < 2)).astype(int)
+    df_output['Monetary_<500_and_Time_<5'] = ((df_input['Monetary'] < 500) & (df_input['Time'] < 5)).astype(int)
+    
+    return df_output
+
+---DIVIDER---
+
+def extracting_features_yes(df_input):
+    df_output = pd.DataFrame()
+    df_output['Recency > 5'] = df_input['Recency'].apply(lambda x: 1 if x > 5 else 0)
+    df_output['Frequency > 3'] = df_input['Frequency'].apply(lambda x: 1 if x > 3 else 0)
+    df_output['Monetary > 1000'] = df_input['Monetary'].apply(lambda x: 1 if x > 1000 else 0)
+    df_output['Time > 20'] = df_input['Time'].apply(lambda x: 1 if x > 20 else 0)
+    df_output['Recency < 10 and Frequency > 2'] = ((df_input['Recency'] < 10) & (df_input['Frequency'] > 2)).astype(int)
+    df_output['Monetary > 500 and Time > 5'] = ((df_input['Monetary'] > 500) & (df_input['Time'] > 5)).astype(int)
+    df_output['Recency < 20 and Frequency > 1'] = ((df_input['Recency'] < 20) & (df_input['Frequency'] > 1)).astype(int)
+    df_output['Monetary > 250 and Time > 10'] = ((df_input['Monetary'] > 250) & (df_input['Time'] > 10)).astype(int)
+    df_output['Recency > 10 and Frequency > 1'] = ((df_input['Recency'] > 10) & (df_input['Frequency'] > 1)).astype(int)
+    df_output['Monetary > 750 and Time > 15'] = ((df_input['Monetary'] > 750) & (df_input['Time'] > 15)).astype(int)
+    
+    return df_output

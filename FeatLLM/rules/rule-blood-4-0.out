@@ -1,0 +1,156 @@
+- Recency: People who donated blood recently are less likely to donate again in the short term.
+- Frequency: People who donated blood more frequently are more likely to donate again.
+- Monetary: People who donated a larger amount of blood are more likely to donate again.
+- Time: People who have been donating blood for a longer time are more likely to continue donating.
+
+
+Step 2. Conditions for class "no":
+- Recency is <= 4
+- Frequency is <= 1
+- Monetary is <= 250
+- Time is <= 4
+- Recency is > 4 and <= 26
+- Frequency is <= 5
+- Monetary is <= 1250
+- Time is > 4 and <= 49
+- Recency is > 26
+- Frequency is > 5
+
+Conditions for class "yes":
+- Recency is > 4
+- Frequency is > 1
+- Monetary is > 250
+- Time is > 4
+- Recency is <= 4 and > 2
+- Frequency is > 1 and <= 5
+- Monetary is > 250 and <= 1250
+- Time is > 4 and <= 49
+- Recency is <= 26 and > 2
+- Frequency is > 5
+
+---DIVIDER---
+
+- Recency: People who donated blood recently are less likely to donate again in the short term.
+- Frequency: People who have donated blood frequently in the past are more likely to donate again.
+- Monetary: People who have donated a large amount of blood in the past may be more willing to donate again.
+- Time: People who have been donating blood for a longer period may be more committed to continuing to donate.
+
+
+Step 2. 
+10 different conditions for class "no":
+- Recency is <= 4
+- Frequency is <= 1
+- Monetary is <= 250
+- Time is <= 4
+- Recency is >= 26
+- Frequency is <= 2
+- Monetary is <= 500
+- Time is <= 10
+- Recency is <= 6 and Frequency is <= 3
+- Time is <= 2 and Monetary is <= 300
+
+10 different conditions for class "yes":
+- Recency is > 4
+- Frequency is >= 2
+- Monetary is > 250
+- Time is > 10
+- Recency is <= 26
+- Frequency is >= 3
+- Monetary is > 500
+- Time is > 2
+- Recency is > 6 and Frequency is >= 4
+- Time is > 4 and Monetary is > 300
+
+---DIVIDER---
+
+- Generally, people who have donated blood recently, frequently, and in larger amounts are more likely to continue donating blood in the future. 
+- People who have donated blood a long time ago may be less likely to donate again.
+
+Step 2. 
+10 different conditions for class "no":
+- Recency is <= 4
+- Frequency is <= 1
+- Monetary is <= 250
+- Time is <= 4
+- Recency is within the range of [2, 4]
+- Frequency is within the range of [1, 2]
+- Monetary is within the range of [250, 500]
+- Time is within the range of [2, 4]
+- Recency is > 4
+- Frequency is > 1
+
+10 different conditions for class "yes":
+- Recency is > 4
+- Frequency is > 1
+- Monetary is > 250
+- Time is > 4
+- Recency is within the range of [4, 26]
+- Frequency is within the range of [1, 5]
+- Monetary is within the range of [250, 1250]
+- Time is within the range of [4, 49]
+- Recency is <= 26
+- Frequency is <= 5
+
+---DIVIDER---
+
+- Recency: The longer the time since the last donation, the less likely the person is to donate blood again.
+- Frequency: The higher the total number of donations, the more likely the person is to donate blood again.
+- Monetary: The higher the total amount of blood donated, the more likely the person is to donate blood again.
+- Time: The longer the time since the first donation, the more likely the person is to donate blood again.
+
+Step 2. 
+10 different conditions for class "no":
+- Recency is <= 3
+- Frequency is <= 2
+- Monetary is <= 500
+- Time is <= 10
+- Recency is in [2, 4]
+- Frequency is in [1, 3]
+- Monetary is in [200, 500]
+- Time is in [1, 20]
+- Recency is > 10
+- Frequency is > 5
+
+10 different conditions for class "yes":
+- Recency is > 3
+- Frequency is > 2
+- Monetary is > 500
+- Time is > 10
+- Recency is in [4, 26]
+- Frequency is in [3, 9]
+- Monetary is in [500, 2250]
+- Time is in [20, 50]
+- Recency is <= 26
+- Frequency is <= 5
+
+---DIVIDER---
+
+- Recency: People who donated blood recently are less likely to donate again in a short period.
+- Frequency: People who donated blood more frequently are more likely to continue donating.
+- Monetary: People who donated a larger amount of blood are more likely to continue donating.
+- Time: People who have been donating blood for a longer period are more likely to continue donating.
+
+Step 2. 
+10 different conditions for class "no":
+- Recency is < 3
+- Frequency is < 2
+- Monetary is < 500
+- Time is < 10
+- Recency is > 20
+- Frequency is < 3
+- Monetary is < 1000
+- Time is < 20
+- Recency is < 5 and Frequency is < 2
+- Monetary is < 500 and Time is < 5
+
+10 different conditions for class "yes":
+- Recency is > 5
+- Frequency is > 3
+- Monetary is > 1000
+- Time is > 20
+- Recency is < 10 and Frequency is > 2
+- Monetary is > 500 and Time is > 5
+- Recency is < 20 and Frequency is > 1
+- Monetary is > 250 and Time is > 10
+- Recency is > 10 and Frequency is > 1
+- Monetary is > 750 and Time is > 15
